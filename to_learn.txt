@@ -1,0 +1,9 @@
+Once at least going through basic queries key concepts to learn:
+
+- Stored Procedures, Custom Functions, Triggers, Views, TempTabs
+
+- Database Tuning, Query Tuning, Indexing, CLR, Profiles, Large Datasets
+
+- (ETL) SSIS - Transferring data between systems and cleaning it up
+
+- (REPORTS) SSRS, Tableau etc.
