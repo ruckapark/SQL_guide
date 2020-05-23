@@ -1,0 +1,27 @@
+use [AdventureWorks]
+
+-- inbuilt functions exists in SQL
+SELECT GETDATE() -- GIVE CURRENT DATE
+SELECT GETDATE() - 2 -- REMOVE TWO DAYS
+
+-- WHAT IF WE DONT WANT THE WHOLE DATE?
+--DATEPART
+
+SELECT DATEPART(yyyy, GETDATE()) -- WITHOUT COLUMN NAME
+SELECT DATEPART(yyyy, GETDATE()) AS YEARNUMBER
+SELECT DATEPART(dd, GETDATE()) AS TODAY-- cant seem to do two parameters together
+-- could use CONCAT
+
+-- DATEADD
+SELECT DATEADD(day, 4, GETDATE())
+SELECT DATEADD(day, 4, '7/2/2016') as ADDEDDATE
+
+-- run query against tables with dates
+SELECT TOP 10 * FROM [Production].[WorkOrder]
+
+-- USE THE DATEDIFF FUNCTION TO ADD A COLUMN WITH THE DIFFERENCE IN DATES
+SELECT WorkOrderID, ProductID, StartDate, EndDate, DATEDIFF(day, StartDate, EndDate) AS DATE_DIFF
+FROM [Production].[WorkOrder]
+
+-- GET FIRST DAY OF MONTH - 
+SELECT DATEADD(dd, -(DATEPART(day, GETDATE()) -1), GETDATE())
