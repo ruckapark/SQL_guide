@@ -35,5 +35,40 @@ Could also see the code in SQL gen trigger file in advanced SQL
 * AS
 * BEGIN GO statement containing the action to take preceed by an error message to be printed
 * A database example could be if someone tries to create a new table stop them with the message 'NOT ALLOWED'
+* Database triggers stored in programmability
 
 ## Computed Columns
+
+Clearly we may want to generate columns from inputs of other columns (ie full name from an online form in first name and last name)
+
+* This can be done manually with a column AS a combination or manipulation of other columns
+* It may be easier to do this with the IDE by creating a table and select column type as calculated
+
+Look at the computed column SQL query for an demonstration of how this could be done
+
+## Stored Procedures
+
+Subroutine for application that acces a relational database system.
+When someone searches amazon a stored procedure would be used when accessing the databse of products, and thus return the relevant objects.
+Parameterised store procedure to get all products where product name = searchvalue
+
+Stored procedure could also of course refer to altering, deleted etc.
+Imaging on amazon adding an item to the shopping cart - here we add to an initially empty table using a store procedure.
+
+If we then use a store procedure to update the quantity once in the cart up so more amounts are added - updating rows.
+Queries can get long and complicated so we can store the procedure containing embedded logic. (Function)
+
+### Creating Store Procedure 
+* Lots of templates exist for stored procedures (can also right click and create new and update params)
+* Better to create from scratch
+* CREATE PROC procudure name // AS // something
+* SET NOCOUNT ON if you aren't bothered by how many rows are affected
+* with input @parameters initialise the before defining the SP AS something
+* These params can take a default value
+* Like deleting things in SQL we can DROP or ALTER/EDIT the values.
+* OUTPUT values need to be defined as OUTPUT when creating the proc
+* In the code you can DECLARE an @variable the EXECUTE the SP and SELECT the variable
+
+The best way to capture this is to check the StoreParams query in advanced SQL
+
+## User Defined Functions
