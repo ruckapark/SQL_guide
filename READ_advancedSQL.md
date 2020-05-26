@@ -184,3 +184,24 @@ We can then select the 2nd highest salary etc.
 * SELECT any exisiting columns,
 * ROW_NUMBER() OVER (ORDER BY column to order by) AS 'rownum'
 * This syntax remains the same from RANK(),DENSE_RANK() and NTILE() which are system funcs
+
+## XML
+
+Extensible markup language. For ex an email: To, From, CC, Subj, Message.  
+In xml <To>....</To>, <From>....</From> etc.
+One email may look like:  
+
+<message>  
+---- <To> ... </To>  
+---- <From> ... </From>  
+---- ...
+---- ...
+</message>
+
+It will be easy for someone to then go into the markup format with a parser and take out the part that they want.
+You can organise your schema definition (syntax) that people can access.
+
+Parsing may be by xslt from xml to html to visualise. There are lots of methods (xpath, foreach etc.)
+
+### Store xml in SQL server
+
