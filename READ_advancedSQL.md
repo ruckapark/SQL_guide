@@ -162,8 +162,25 @@ Groupbys are also very useful when making tables with various combinations of su
 
 ### CTE
 
-### Grouping
-* Brute force with UNION
-* GROUPBY
-* ROLLUP
-* CUBE
+#### Grouping
+* Brute force with UNION - we can just group by in different tables and put NULLS in columns manually. Then use UNION between table calls and they will merge. This is a very inefficient writing of the query.
+
+These three methods all have efficient syntax and different uses:
+* GROUPING SETS allow us to define multiple sets of grouping in the same table
+* ROLLUP clasue assumes a hierachy from left to right so starts with all sets then progressively removes from right to left.
+* CUBE accounts for all possibilities of the grouping sets.
+
+These are great for reporting and typically used for sum totals as the calculated column.
+See CTE query for sytax.
+
+#### Ranking
+ 
+Suppose we have employee table with salaries. What if we want to order by salary. Order by is the common procedure.
+If we order by, we then might to give a rank as well (1,2,3,3,3,6,7,7,9) etc.
+Ranks, Dense ranks, Bucketing (group into teirs depending on the ranks - Ntide())
+We can then select the 2nd highest salary etc.
+
+##### Creating Ranks
+* SELECT any exisiting columns,
+* ROW_NUMBER() OVER (ORDER BY column to order by) AS 'rownum'
+* This syntax remains the same from RANK(),DENSE_RANK() and NTILE() which are system funcs
