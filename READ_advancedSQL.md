@@ -204,4 +204,28 @@ You can organise your schema definition (syntax) that people can access.
 Parsing may be by xslt from xml to html to visualise. There are lots of methods (xpath, foreach etc.)
 
 ### Store xml in SQL server
+* CREATE TABLE with a column as data type xmldata
+* Copy and past in some XML all in string INSERT INTO
+* Where looking at the table, one can open the xml in a new SQL tab for a neater view
+* It remains more readable to have tags line by line in VALUES()
+
+### Convert table to XML
+* SELECT columns from table FOR XML AUTO, ELEMENTS, ROOT ('SalesTerritory')
+* for more customisation could be RAW not AUTO, with row tags.
+* Could equally only select one column
+
+### Query XML data
+* use a query - will still containg the <> and tag though
+* [column].query('/note/tag') as [tag]
+* a value query can return exact values
+* use a value('/note/tag[int]','type (e.g varchar())') as [tag]
+
+To convert xml into a standard table format looking neat parsing logic is needed.
+An example of this is at the bottom of XML query.
+
+Be careful for the Case Sensitive strings!!!
+
+## Partitions
+
+## Dynamic Queries
 
